@@ -9,7 +9,7 @@ function App() {
             <img
                 id="currentBackground"
                 src={hogback}
-                classname={styles.mainBackgroundSetting}
+                className={styles.mainBackgroundSetting}
             ></img>
         </div>
     );
