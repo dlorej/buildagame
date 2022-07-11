@@ -4,6 +4,13 @@ import hogback from "./hogwartsClassroom.jpg";
 import styles from "./styles.module.css";
 
 function App() {
+    const stream = () => {
+        navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then(function (stream) {
+                return stream;
+            });
+    };
     return (
         <div id="mainscreen">
             <img
@@ -12,7 +19,8 @@ function App() {
                 className={styles.mainBackgroundSetting}
             ></img>
             <span className={`${styles.circle1} ${styles.centre}`}></span>
-            <input type="file" accept="image/*" capture="capture"></input>
+            {/* <input type="file" accept="image/*" capture="capture"></input> */}
+            <video autoplay="true" id="videoElement" src={stream}></video>
         </div>
     );
 }
