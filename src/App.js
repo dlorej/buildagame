@@ -4,6 +4,10 @@ import hogback from "./hogwartsClassroom.jpg";
 import styles from "./styles.module.css";
 
 function App() {
+    const openCamera = () => (
+        <input type="file" accept="image/*" capture="capture"></input>
+    );
+
     return (
         <div id="mainscreen">
             <img
@@ -12,6 +16,7 @@ function App() {
                 className={styles.mainBackgroundSetting}
             ></img>
             <span className={`${styles.circle1} ${styles.centre}`}></span>
+            {openCamera}
         </div>
     );
 }

@@ -1,6 +1,7 @@
 .mainBackgroundSetting {
     width: 70%;
-    height:auto
+    height:auto;
+    position: relative;
 }
 .circle1 {
     height: 25px;
