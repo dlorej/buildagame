@@ -9,6 +9,9 @@ function App() {
             .getUserMedia({ video: true })
             .then(function (stream) {
                 return stream;
+            })
+            .catch(function (err) {
+                console.log("Something went wrong!");
             });
     };
     return (
