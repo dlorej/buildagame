@@ -11,7 +11,7 @@ function App() {
                 src={hogback}
                 className={styles.mainBackgroundSetting}
             ></img>
-            <span className={(styles.circle1, styles.centre)}></span>
+            <span className={`${styles.circle1} ${styles.centre}`}></span>
         </div>
     );
 }

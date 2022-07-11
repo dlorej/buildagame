@@ -1,11 +1,11 @@
 .mainBackgroundSetting {
-    width: 100%;
+    width: 70%;
     height:auto
 }
 .circle1 {
     height: 25px;
     width: 25px;
-    background-color: #bbb;
+    background-color: black;
     border-radius: 50%;
     z-index: 1;
     position: absolute;
