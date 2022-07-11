@@ -8,6 +8,7 @@ function App() {
         navigator.mediaDevices
             .getUserMedia({ video: true })
             .then(function (stream) {
+                console.log("this code");
                 return stream;
             })
             .catch(function (err) {
