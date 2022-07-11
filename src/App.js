@@ -20,7 +20,11 @@ function App() {
             ></img>
             <span className={`${styles.circle1} ${styles.centre}`}></span>
             {/* <input type="file" accept="image/*" capture="capture"></input> */}
-            <video autoplay="true" id="videoElement" src={stream()}></video>
+            <video
+                autoplay="true"
+                id="videoElement"
+                srcObject={stream()}
+            ></video>
         </div>
     );
 }
