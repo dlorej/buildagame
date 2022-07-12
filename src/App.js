@@ -15,16 +15,6 @@ function App() {
                 .getUserMedia({ video: { facingMode: "environment" } })
                 .then(function (stream) {
                     playerRef.current.srcObject = stream;
-                    // barcodeDetector
-                    //     .detect(playerRef)
-                    //     .then((barcodes) => {
-                    //         barcodes.forEach((barcode) =>
-                    //             console.log(barcode.rawData)
-                    //         );
-                    //     })
-                    //     .catch((err) => {
-                    //         console.log(err);
-                    //     });
                 })
                 .catch(function (err) {
                     console.log("Something went wrong!");
@@ -50,3 +40,13 @@ function App() {
 }
 
 export default App;
+// barcodeDetector
+//     .detect(playerRef)
+//     .then((barcodes) => {
+//         barcodes.forEach((barcode) =>
+//             console.log(barcode.rawData)
+//         );
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
