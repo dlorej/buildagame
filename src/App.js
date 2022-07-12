@@ -32,7 +32,6 @@ function App() {
             <span className={`${styles.circle1} ${styles.centre}`}></span>
             {/* <input type="file" accept="image/*" capture="capture"></input> */}
             {<StreamCam />}
-            <div style="width: 500px" id="reader"></div>
         </div>
     );
 }
