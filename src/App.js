@@ -7,7 +7,6 @@ function App() {
     console.log("BarcodeDetector" in window);
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
     const StreamCam = () => {
-        // const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
         const playerRef = useRef();
         useEffect(() => {
             console.log("using effect");
@@ -40,6 +39,9 @@ function App() {
 }
 
 export default App;
+
+// const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
+
 // barcodeDetector
 //     .detect(playerRef)
 //     .then((barcodes) => {
