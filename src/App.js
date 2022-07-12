@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 function App() {
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
     const StreamCam = () => {
+        const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
         const playerRef = useRef();
         useEffect(() => {
             console.log("using effect");
@@ -13,6 +14,16 @@ function App() {
                 .getUserMedia({ video: { facingMode: "environment" } })
                 .then(function (stream) {
                     playerRef.current.srcObject = stream;
+                    barcodeDetector
+                        .detect(playerRef)
+                        .then((barcodes) => {
+                            barcodes.forEach((barcode) =>
+                                console.log(barcode.rawData)
+                            );
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
                 })
                 .catch(function (err) {
                     console.log("Something went wrong!");
@@ -32,6 +43,7 @@ function App() {
             <span className={`${styles.circle1} ${styles.centre}`}></span>
             {/* <input type="file" accept="image/*" capture="capture"></input> */}
             {<StreamCam />}
+            <div style="width: 500px" id="reader"></div>
         </div>
     );
 }
