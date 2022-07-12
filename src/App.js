@@ -6,12 +6,11 @@ import styles from "./styles.module.css";
 function App() {
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
     const StreamCam = () => {
-        const [source, setSource] = useState(null);
         const playerRef = useRef();
         useEffect(() => {
             console.log("using effect");
             navigator.mediaDevices
-                .getUserMedia({ video: true })
+                .getUserMedia({ video: { facingMode: "environment" } })
                 .then(function (stream) {
                     playerRef.current.srcObject = stream;
                 })
