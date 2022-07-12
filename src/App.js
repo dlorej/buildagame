@@ -1,19 +1,26 @@
-import logo from "./logo.svg";
+import { useRef, useState, useEffect } from "react";
 import "./App.css";
 import hogback from "./hogwartsClassroom.jpg";
 import styles from "./styles.module.css";
 
 function App() {
-    const stream = () => {
-        navigator.mediaDevices
-            .getUserMedia({ video: true })
-            .then(function (stream) {
-                console.log("this code");
-                return stream;
-            })
-            .catch(function (err) {
-                console.log("Something went wrong!");
-            });
+    //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
+    const streamCam = () => {
+        const playerRef = useRef < HTMLVideoElement > null;
+        useEffect(() => {
+            navigator.mediaDevices
+                .getUserMedia({ video: true })
+                .then(function (stream) {
+                    playerRef.current.srcObject = stream;
+                })
+                .catch(function (err) {
+                    console.log("Something went wrong!");
+                });
+        });
+
+        return (
+            <video autoplay="true" id="videoElement" ref={playerRef}></video>
+        );
     };
     return (
         <div id="mainscreen">
@@ -24,11 +31,7 @@ function App() {
             ></img>
             <span className={`${styles.circle1} ${styles.centre}`}></span>
             {/* <input type="file" accept="image/*" capture="capture"></input> */}
-            <video
-                autoplay="true"
-                id="videoElement"
-                srcObject={stream()}
-            ></video>
+            {streamCam}
         </div>
     );
 }
