@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 function App() {
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
-    const streamCam = () => {
+    const StreamCam = () => {
         const playerRef = useRef < HTMLVideoElement > null;
         useEffect(() => {
             navigator.mediaDevices
@@ -31,7 +31,7 @@ function App() {
             ></img>
             <span className={`${styles.circle1} ${styles.centre}`}></span>
             {/* <input type="file" accept="image/*" capture="capture"></input> */}
-            {streamCam}
+            {StreamCam}
         </div>
     );
 }
