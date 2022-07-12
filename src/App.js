@@ -8,6 +8,7 @@ function App() {
     const StreamCam = () => {
         const playerRef = useRef < HTMLVideoElement > null;
         useEffect(() => {
+            console.log("using effect");
             navigator.mediaDevices
                 .getUserMedia({ video: true })
                 .then(function (stream) {
@@ -17,7 +18,6 @@ function App() {
                     console.log("Something went wrong!");
                 });
         });
-
         return (
             <video autoplay="true" id="videoElement" ref={playerRef}></video>
         );
