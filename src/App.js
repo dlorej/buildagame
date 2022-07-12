@@ -4,7 +4,6 @@ import hogback from "./hogwartsClassroom.jpg";
 import styles from "./styles.module.css";
 
 function App() {
-    console.log("BarcodeDetector" in window);
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
     const StreamCam = () => {
         const playerRef = useRef();
@@ -39,16 +38,3 @@ function App() {
 }
 
 export default App;
-
-// const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
-
-// barcodeDetector
-//     .detect(playerRef)
-//     .then((barcodes) => {
-//         barcodes.forEach((barcode) =>
-//             console.log(barcode.rawData)
-//         );
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
