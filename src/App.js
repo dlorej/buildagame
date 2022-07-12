@@ -4,9 +4,10 @@ import hogback from "./hogwartsClassroom.jpg";
 import styles from "./styles.module.css";
 
 function App() {
+    console.log("BarcodeDetector" in window);
     //react doesnt support srcobject, need to use ref, ref not supported in functional components, need to use
     const StreamCam = () => {
-        const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
+        // const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
         const playerRef = useRef();
         useEffect(() => {
             console.log("using effect");
@@ -14,16 +15,16 @@ function App() {
                 .getUserMedia({ video: { facingMode: "environment" } })
                 .then(function (stream) {
                     playerRef.current.srcObject = stream;
-                    barcodeDetector
-                        .detect(playerRef)
-                        .then((barcodes) => {
-                            barcodes.forEach((barcode) =>
-                                console.log(barcode.rawData)
-                            );
-                        })
-                        .catch((err) => {
-                            console.log(err);
-                        });
+                    // barcodeDetector
+                    //     .detect(playerRef)
+                    //     .then((barcodes) => {
+                    //         barcodes.forEach((barcode) =>
+                    //             console.log(barcode.rawData)
+                    //         );
+                    //     })
+                    //     .catch((err) => {
+                    //         console.log(err);
+                    //     });
                 })
                 .catch(function (err) {
                     console.log("Something went wrong!");
